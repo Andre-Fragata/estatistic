@@ -14,6 +14,7 @@ function calcularTabelaFrequencia(valores) {
     // Objeto para armazenar a frequência de cada valor
     const frequencia = {};
     let frequencia_acumulada = 0
+    let frequencia_relativa_acumulada = 0
 
     let limite_inferior = valores[0]
     let limite_superior = valores[38]
@@ -41,7 +42,8 @@ function calcularTabelaFrequencia(valores) {
     for (const valor in frequencia) {
         const porcentagem = (frequencia[valor] / totalValores) * 100;
         frequencia_acumulada += frequencia[valor];
-        console.log(`${valor} | ${frequencia[valor]} | ${porcentagem.toFixed(2)}% | ${frequencia_acumulada}`);
+        frequencia_relativa_acumulada += porcentagem
+        console.log(`${valor} | ${frequencia[valor]} | ${porcentagem.toFixed(2)}% | ${frequencia_acumulada} | ${frequencia_relativa_acumulada.toFixed(2)}%`);
     }
 
     // Retorna o total de valores
